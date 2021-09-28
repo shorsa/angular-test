@@ -16,6 +16,7 @@ const routes: Routes = [
         redirectTo: RoutesConstants.DASHBOARD_INDEX,
         pathMatch: 'full'
       },
+      { path: '**', redirectTo: RoutesConstants.DASHBOARD_INDEX },
     ]
   }
 ];

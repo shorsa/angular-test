@@ -6,7 +6,7 @@
         <div class="out-input">
           <mat-label>Entry Date</mat-label>
           <mat-form-field>
-            <input matInput formControlName="entryDate" (dateChange)="choseDate($event, 'entryDate')"
+            <input [disabled]="true" matInput formControlName="entryDate" (dateChange)="choseDate($event, 'entryDate')"
               [max]="maxEntryDate" [min]="minEntryDate" [matDatepicker]="entryDate">
             <mat-datepicker-toggle matSuffix [for]="entryDate"></mat-datepicker-toggle>
             <mat-datepicker #entryDate></mat-datepicker>
@@ -24,8 +24,8 @@
         <div class="out-input">
           <mat-label>Exit Date</mat-label>
           <mat-form-field>
-            <input matInput formControlName="exitDate" [min]="minExitDate" (dateChange)="choseDate($event, 'exitDate')"
-              [matDatepicker]="exitDate">
+            <input matInput [disabled]="true" formControlName="exitDate" [min]="minExitDate"
+              (dateChange)="choseDate($event, 'exitDate')" [matDatepicker]="exitDate">
             <mat-datepicker-toggle matSuffix [for]="exitDate"></mat-datepicker-toggle>
             <mat-datepicker #exitDate></mat-datepicker>
             <mat-error>
@@ -62,7 +62,7 @@
         </div>
         <div class="out-input">
           <mat-label>Exit price</mat-label>
-          <mat-form-field appearance="outline"  [ngClass]=" {'invalid':submitted && formControl.exitPrice.errors &&
+          <mat-form-field appearance="outline" [ngClass]=" {'invalid':submitted && formControl.exitPrice.errors &&
             formControl.exitPrice.touched}">
             <input type="number" matInput formControlName="exitPrice" autocomplete="off">
             <mat-error>
@@ -82,10 +82,10 @@
     </div>
   </form>
   <ng-container *ngIf="isCreate">
-    <button mat-button (click)="create()">Create trade</button>
+    <button mat-raised-button color="primary" (click)="create()">Create trade</button>
   </ng-container>
   <ng-container *ngIf="!isCreate">
-    <button mat-button (click)="edit()">Edit trade</button>
+    <button mat-raised-button color="primary" (click)="edit()">Edit trade</button>
   </ng-container>
 
 </div>

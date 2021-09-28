@@ -1,6 +1,11 @@
 @import "../../../../assets/scss/utils/mixines";
 
 .dialog-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60vw;
+  height: 40vh;
   & > form {
     & > .column {
       @include flex-column-center;
