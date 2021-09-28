@@ -1,0 +1,91 @@
+<div class="dialog-wrapper">
+  <h2>{{isCreate? "Create": "Edit"}} trade</h2>
+  <form [formGroup]="formGroup">
+    <div class="column">
+      <div class="row">
+        <div class="out-input">
+          <mat-label>Entry Date</mat-label>
+          <mat-form-field>
+            <input matInput formControlName="entryDate" (dateChange)="choseDate($event, 'entryDate')"
+              [max]="maxEntryDate" [min]="minEntryDate" [matDatepicker]="entryDate">
+            <mat-datepicker-toggle matSuffix [for]="entryDate"></mat-datepicker-toggle>
+            <mat-datepicker #entryDate></mat-datepicker>
+            <mat-error>
+              <ng-container *ngIf=" formControl.entryDate.errors?.required">
+                Entry Date is required
+              </ng-container>
+              <ng-container *ngIf=" formControl.entryDate.errors?.pattern">
+                Invalid Entry Date address
+              </ng-container>
+
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="out-input">
+          <mat-label>Exit Date</mat-label>
+          <mat-form-field>
+            <input matInput formControlName="exitDate" [min]="minExitDate" (dateChange)="choseDate($event, 'exitDate')"
+              [matDatepicker]="exitDate">
+            <mat-datepicker-toggle matSuffix [for]="exitDate"></mat-datepicker-toggle>
+            <mat-datepicker #exitDate></mat-datepicker>
+            <mat-error>
+              <ng-container *ngIf=" formControl.exitDate.errors?.required">
+                Exit Date is required
+              </ng-container>
+              <ng-container *ngIf=" formControl.exitDate.errors?.pattern">
+                Invalid Exit Date address
+              </ng-container>
+
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="out-input">
+          <mat-label>Entry price</mat-label>
+          <mat-form-field
+            [ngClass]="{'invalid':submitted && formControl.entryPrice.errors && formControl.entryPrice.touched}"
+            appearance="outline">
+            <input type="number" matInput formControlName="entryPrice" autocomplete="off">
+            <mat-error>
+              <ng-container *ngIf=" formControl.entryPrice.errors?.required">
+                Entry Price is required
+              </ng-container>
+              <ng-container *ngIf=" formControl.entryPrice.errors?.min">
+                Invalid value
+              </ng-container>
+              <ng-container *ngIf=" formControl.entryPrice.errors?.description">
+                {{formControl.entryPrice.errors.description}}
+              </ng-container>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="out-input">
+          <mat-label>Exit price</mat-label>
+          <mat-form-field appearance="outline"  [ngClass]=" {'invalid':submitted && formControl.exitPrice.errors &&
+            formControl.exitPrice.touched}">
+            <input type="number" matInput formControlName="exitPrice" autocomplete="off">
+            <mat-error>
+              <ng-container *ngIf=" formControl.exitPrice.errors?.required">
+                Exit Price is required
+              </ng-container>
+              <ng-container *ngIf=" formControl.exitPrice.errors?.pattern">
+                Invalid exitPrice address
+              </ng-container>
+              <ng-container *ngIf=" formControl.exitPrice.errors?.description">
+                {{formControl.exitPrice.errors.description}}
+              </ng-container>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+  <ng-container *ngIf="isCreate">
+    <button mat-button (click)="create()">Create trade</button>
+  </ng-container>
+  <ng-container *ngIf="!isCreate">
+    <button mat-button (click)="edit()">Edit trade</button>
+  </ng-container>
+
+</div>

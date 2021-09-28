@@ -1,0 +1,101 @@
+@import "../../../../assets/scss/utils/variables";
+@import "../../../../assets/scss/utils/mixines";
+
+$sidenav-width: 227px;
+$header-height: 60px;
+.header {
+    height: $header-height;
+    background: $white;
+    box-shadow: 5px 0px 5px 0 rgba(151, 167, 182, 0.38);
+    position: fixed;
+    z-index: 9;
+    width: calc(100% - 227px);
+    margin-left: $sidenav-width;
+    .spacer {
+        flex: 1 1 auto;
+    }
+    .transparent-btn {
+        @include flex-row-align;
+        cursor: pointer;
+        & > .avatar {
+            & > img {
+                width: 38px;
+                height: 38px;
+                object-fit: contain;
+            }
+        }
+
+        & > mat-icon {
+            color: $grey;
+        }
+    }
+}
+
+.sidenav {
+    background: $white;
+    color: $grey;
+    width: $sidenav-width;
+    box-shadow: 0 6px 5px 0 rgba(151, 167, 182, 0.38);
+
+    .logo {
+        & > img {
+          width: 100%;
+        }
+    }
+
+    .menu {
+        @include flex-column-center(baseline, center);
+        padding: 0;
+
+        & > .item {
+            padding-left: 25px;
+            color: $grey;
+            height: 40px;
+            font-size: 13px;
+            line-height: 1.54;
+            letter-spacing: -0.31px;
+            @include flex-row-align;
+            width: 100%;
+            cursor: pointer;
+            outline: none;
+
+            &.active {
+                color: $red;
+            }
+
+            &:hover {
+                background: $light-gray;
+            }
+
+            & > mat-icon {
+                margin-right: 10px;
+            }
+        }
+    }
+    .help {
+        cursor: pointer;
+        @include flex-row-align;
+        position: absolute;
+        bottom: 30px;
+        left: 27px;
+        color: $grey;
+        font-size: 13px;
+        line-height: 1.54;
+        letter-spacing: -0.31px;
+        & > :first-child {
+            margin-right: 5px;
+            color: $grey;
+            font-weight: 300;
+            font-size: 20px;
+        }
+    }
+}
+
+mat-sidenav-content {
+    margin-left: $sidenav-width;
+    margin-top: $header-height;
+    height: calc(100vh - 60px);
+    display: block;
+    overflow: auto;
+    overflow-x: hidden;
+}

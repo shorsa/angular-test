@@ -1,0 +1,12 @@
+@import "../../../../assets/scss/utils/mixines";
+
+.dialog-wrapper {
+  & > form {
+    & > .column {
+      @include flex-column-center;
+      & > .row {
+        @include flex-row-content-align;
+      }
+    }
+  }
+}

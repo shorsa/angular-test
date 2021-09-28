@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <h2>Trades</h2>
+  <button mat-button (click)="createTrade()">Create trade</button>
+  <div class="chart">
+    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartClick)="editTrade($event)"></canvas>
+  </div>
+</div>
