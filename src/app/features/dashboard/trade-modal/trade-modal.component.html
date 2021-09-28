@@ -48,13 +48,13 @@
             appearance="outline">
             <input type="number" matInput formControlName="entryPrice" autocomplete="off">
             <mat-error>
-              <ng-container *ngIf=" formControl.entryPrice.errors?.required">
+              <ng-container *ngIf="submitted &&  formControl.entryPrice.errors?.required">
                 Entry Price is required
               </ng-container>
-              <ng-container *ngIf=" formControl.entryPrice.errors?.min">
+              <ng-container *ngIf="submitted &&  formControl.entryPrice.errors?.min">
                 Invalid value
               </ng-container>
-              <ng-container *ngIf=" formControl.entryPrice.errors?.description">
+              <ng-container *ngIf="submitted &&  formControl.entryPrice.errors?.description">
                 {{formControl.entryPrice.errors.description}}
               </ng-container>
             </mat-error>
@@ -66,13 +66,13 @@
             formControl.exitPrice.touched}">
             <input type="number" matInput formControlName="exitPrice" autocomplete="off">
             <mat-error>
-              <ng-container *ngIf=" formControl.exitPrice.errors?.required">
+              <ng-container *ngIf="submitted &&  formControl.exitPrice.errors?.required">
                 Exit Price is required
               </ng-container>
-              <ng-container *ngIf=" formControl.exitPrice.errors?.pattern">
+              <ng-container *ngIf="submitted &&  formControl.exitPrice.errors?.pattern">
                 Invalid exitPrice address
               </ng-container>
-              <ng-container *ngIf=" formControl.exitPrice.errors?.description">
+              <ng-container *ngIf="submitted &&  formControl.exitPrice.errors?.description">
                 {{formControl.exitPrice.errors.description}}
               </ng-container>
             </mat-error>

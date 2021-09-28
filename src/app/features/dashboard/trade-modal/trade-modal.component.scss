@@ -10,7 +10,7 @@
     & > .column {
       @include flex-column-center;
       & > .row {
-        @include flex-row-content-align;
+        @include flex-row-content-align(flex-start, center);
       }
     }
   }
