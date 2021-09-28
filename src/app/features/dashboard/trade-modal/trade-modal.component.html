@@ -6,7 +6,7 @@
         <div class="out-input">
           <mat-label>Entry Date</mat-label>
           <mat-form-field>
-            <input [disabled]="true" matInput formControlName="entryDate" (dateChange)="choseDate($event, 'entryDate')"
+            <input matInput formControlName="entryDate" (dateChange)="choseDate($event, 'entryDate')"
               [max]="maxEntryDate" [min]="minEntryDate" [matDatepicker]="entryDate">
             <mat-datepicker-toggle matSuffix [for]="entryDate"></mat-datepicker-toggle>
             <mat-datepicker #entryDate></mat-datepicker>
@@ -24,7 +24,7 @@
         <div class="out-input">
           <mat-label>Exit Date</mat-label>
           <mat-form-field>
-            <input matInput [disabled]="true" formControlName="exitDate" [min]="minExitDate"
+            <input matInput formControlName="exitDate" [min]="minExitDate"
               (dateChange)="choseDate($event, 'exitDate')" [matDatepicker]="exitDate">
             <mat-datepicker-toggle matSuffix [for]="exitDate"></mat-datepicker-toggle>
             <mat-datepicker #exitDate></mat-datepicker>
